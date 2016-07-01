@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /* Given an array of integers, every element appears three times except for one. Find that single one.
  * Note:
  * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
@@ -28,4 +31,29 @@ public class SingleNumberII {
 		}
 		return ans;
 	}
+	
+	public int singleNumber2(int[] nums) {
+        int len = nums.length;
+        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+        for(int i = 0; i < len; i++){
+            if(!map.containsKey(nums[i])){
+                map.put(nums[i],1);
+            }
+            else{
+                int n = map.get(nums[i]);
+                map.put(nums[i],n+1);
+            }
+        }
+        len = map.size();
+        int result = 0;
+        for(int n : map.keySet()){
+            if(map.get(n) == 1){
+                result = n;
+                break;
+            }
+               
+        }
+         return result;
+    }
+	
 }

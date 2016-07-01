@@ -2,6 +2,7 @@ package leetcode;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 /* Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.
  * For example:
@@ -26,4 +27,26 @@ public class SingleNumberIII {
 		res[1] = it.next();
 		return res;
 	}
+	
+	//上面的函数只检测两个单个的数字，而这个函数无论有多少单个的数字都可以得到
+	public int[] singleNumber2(int[] nums) {
+        Set<Integer> set = new HashSet<Integer>();
+        
+        int len = nums.length;
+        for(int i = 0; i < len;i++){
+            if(!set.add(nums[i]))
+                set.remove(nums[i]);
+        }
+        
+        Iterator<Integer> itr = set.iterator();
+        len = set.size();
+        int[] single = new int[len];
+        for(int i = 0; i < len; i++)
+            single[i] = itr.next();
+        
+        return single;
+    }
+	
+	
+	
 }
