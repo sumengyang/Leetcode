@@ -28,8 +28,8 @@ public class SingleNumberIII {
 		return res;
 	}
 	
-	//哈哈 产生冲突了吧
-	//上面的函数只检测两个单个的数字，而这个函数无论有多少单个的数字都可以得到
+	
+	//这个函数无论有多少单个的数字都可以得到，create a conflict
 	public int[] singleNumber2(int[] nums) {
         Set<Integer> set = new HashSet<Integer>();
         
