@@ -20,18 +20,21 @@ public class ThreeSumSmaller {
 			int j = i + 1;
 			int k = nums.length - 1;
 			while (j < k) {
-				int sum3=nums[i] + nums[j] + nums[k];
-				if ( sum3< target) {
-					res += k - j;
+				int sum3 = nums[i] + nums[j] + nums[k];
+				if (sum3 < target) {
+					res += k-j;//把中间的全部算上
 					j++;
 				} else {
-					while (j < k && sum3>=target){
-						k--;
-						sum3=nums[i] + nums[j] + nums[k];
-					}
+					k--;
 				}
 			}
 		}
 		return res;
+	}
+
+	public static void main(String[] args) {
+		ThreeSumSmaller ts = new ThreeSumSmaller();
+		int[] nums = { -2, 0, 1, 3 };
+		System.out.println(ts.threeSumSmaller(nums, 2));
 	}
 }

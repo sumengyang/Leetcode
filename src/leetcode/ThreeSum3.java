@@ -12,8 +12,8 @@ package leetcode;
 import java.util.*;
 
 public class ThreeSum3 {
-	public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
-		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+	public List<List<Integer>> threeSum(int[] num) {
+		List<List<Integer>> res = new ArrayList<List<Integer>>();
 		if(num.length<3)
 			return res;
 		Arrays.sort(num);
@@ -26,7 +26,7 @@ public class ThreeSum3 {
 				 else if (num[start] + num[end] > -num[i])
 					end--;
 				else {
-					ArrayList<Integer> list = new ArrayList<Integer>();
+					List<Integer> list = new ArrayList<Integer>();
 					list.add(num[i]);
 					list.add(num[start]);
 					list.add(num[end]);

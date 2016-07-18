@@ -13,18 +13,17 @@ package leetcode;
 import java.util.*;
 //TLE
 public class ThreeSum {
-	public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
-	
-		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> list = new ArrayList<Integer>();
+	public List<List<Integer>> threeSum(int[] num) {
+		List<List<Integer>> res = new ArrayList<List<Integer>>();		
 		if(num.length<3)
 			return res;
 		for (int i = 0; i < num.length; i++) {
-			for (int j = i; j < num.length; j++) {
-				for (int k = j; k < num.length; k++) {
+			for (int j = i+1; j < num.length; j++) {
+				for (int k = j+1; k < num.length; k++) {
 					if (num[i] + num[j] + num[k] == 0) {
 						int[] arr = new int[] { num[i], num[j], num[k] };
 						Arrays.sort(arr);
+						List<Integer> list = new ArrayList<Integer>();
 						for (int m = 0; m < 3; m++)
 							list.add(arr[m]);
 						if (!res.contains(list))
@@ -34,5 +33,10 @@ public class ThreeSum {
 			}
 		}
 		return res;
+	}
+	public static void main(String[] args){
+		ThreeSum ts = new ThreeSum();
+		int[] nums = {-1,0,1,2,-1,4};
+		System.out.println(ts.threeSum(nums));
 	}
 }

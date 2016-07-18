@@ -12,9 +12,8 @@ public class ThreeSumClosest {
 	public int threeSumClosest(int[] num, int target) {
 		int min = Integer.MAX_VALUE;
 		int result = 0;
- 
 		Arrays.sort(num);
- 
+
 		for (int i = 0; i < num.length; i++) {
 			int j = i + 1;
 			int k = num.length - 1;
@@ -27,9 +26,8 @@ public class ThreeSumClosest {
 				}
 				if (sum <= target)
 					j++;
-				 else 
+				else
 					k--;
-				
 			}
 		}
 		return result;

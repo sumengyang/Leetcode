@@ -31,6 +31,9 @@ public class UglyNumberII {
 		return num == 1;
 	}
 	public static void main(String[] args){
+		long start = System.currentTimeMillis();
 		System.out.println(nthUglyNumber(1600));
+		long end = System.currentTimeMillis();
+		System.out.println(start-end);
 	}
 }
