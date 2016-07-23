@@ -10,7 +10,7 @@ public class MergeSortedArray {
 		int j = m - 1;
 		int k = n - 1;
 		if (m == 0)
-			while (k >= 0) {
+			while (k >= 0) { 
 				A[k] = B[k];
 				k--;
 			}
