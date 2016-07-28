@@ -1,12 +1,15 @@
 package leetcode;
+
 /* Given two binary strings, return their sum (also a binary string).
  * For example,
  * a = "11"
  * b = "1"
  * Return "100".
+ * 
+ * 思路：取出binary数，然后相加（相加跟数组/链表中相加相似，有一个flag标志进位），最后放到StringBuilder，toString（）
  */
 public class AddBinary {
-	public String addBinary(String a, String b) {    
+	public String addBinary(String a, String b) {
 		if (a == null || a.length() == 0)
 			return b;
 		if (b == null || b.length() == 0)
