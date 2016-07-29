@@ -9,7 +9,6 @@ public class MinimumDepthofBinaryTree {
 	public int minDepth(TreeNode root) {
 		if (root == null)
 			return 0;
-
 		LinkedList<TreeNode> nodes = new LinkedList<TreeNode>();
 		LinkedList<Integer> counts = new LinkedList<Integer>();
 		nodes.add(root);

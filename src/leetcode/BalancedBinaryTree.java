@@ -21,6 +21,5 @@ public class BalancedBinaryTree {
 		int left = getHeight(root.left);
 		int right = getHeight(root.right);
 		return Math.max(left, right) + 1;
-
 	}
 }
