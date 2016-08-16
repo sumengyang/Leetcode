@@ -5,7 +5,15 @@ package leetcode;
 /* method1 find from the center
  */
 public class LongestPalindromicSubstring {
-	public  String longestPalindrome(String s) {
+	
+	public static void main(String[] args){
+		String str = "bb";
+		String ans = longestPalindrome(str);
+		System.out.println(ans);
+		
+	}
+	
+	public static String longestPalindrome(String s) {
 		if (s.isEmpty()) 
 			return null;
 		if (s.length() == 1) 
@@ -27,7 +35,7 @@ public class LongestPalindromicSubstring {
 		return longest;
 	}
 	// Given a center, either one letter or two letter, find longest palindromic
-	public String helper(String s, int begin, int end) {
+	public  static String helper(String s, int begin, int end) {
 		while (begin >= 0 && end <= s.length() - 1 && s.charAt(begin) == s.charAt(end)) {
 			begin--;
 			end++;

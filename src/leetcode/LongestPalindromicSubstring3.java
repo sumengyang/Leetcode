@@ -5,7 +5,7 @@ package leetcode;
  * and there exists one unique longest palindromic substring.
  */
 /* method1 find from the center
- * brute 
+ * brute force: Time Limit Exceeded
  */
 public class LongestPalindromicSubstring3 {
 	public static void main(String[] args) {

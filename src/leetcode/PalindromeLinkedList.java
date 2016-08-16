@@ -5,6 +5,9 @@ package leetcode;
  * Follow up:
  * Could you do it in O(n) time and O(1) space?
  */
+
+//1、遍历整个链表，将链表每个节点的值记录在数组中，再判断数组是不是一个回文数组，
+//时间复杂度为O（n），但空间复杂度也为O（n），不满足空间复杂度要求。
 public class PalindromeLinkedList {
 	public boolean isPalindrome(ListNode head) {
 		if (head == null)
