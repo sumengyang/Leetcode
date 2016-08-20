@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /* Given an array of integers, find two numbers such that they add up to a specific target 
  * The function twoSum should return indices of the two numbers such that they add up to the target,
@@ -12,16 +13,24 @@ import java.util.HashMap;
 /* Time complexity of this solution: O(n)
  */
 public class TwoSum3 {
-	public int[] twoSum(int[] numbers, int target) {
-		HashMap<Integer, Integer> map = new HashMap<>();
-		for (int i = 0; i < numbers.length; i++) {
-			int x = numbers[i];
+	public int[] twoSum(int[] nums, int target) {
+		Map<Integer, Integer> map = new HashMap<>();
+		int[] res = new int[2];
+		for (int i = 0; i < nums.length; i++) {
+			int x = nums[i];
 			if (map.containsKey(target - x)) {
-				int[] res = { map.get(target - x) + 1, i + 1 };
+				int second = map.get(target - x);
+//				if (i > second) {
+//					int temp = i;
+//					i = second;
+//					second = temp;
+//				}结果不必按大小返回
+				res[0] = i;
+				res[1] = second;
 				return res;
 			}
 			map.put(x, i);
 		}
-		throw new IllegalArgumentException("No two sum solution");
+		return res;
 	}
 }
