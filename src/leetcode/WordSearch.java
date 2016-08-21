@@ -25,7 +25,6 @@ public class WordSearch {
 					return true;
 				}
 			}
-
 		}
 		return false;
 	}
