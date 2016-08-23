@@ -11,8 +11,6 @@ package leetcode;
  */
 public class ImplementTriePrefixTree {
 	class TrieNode {
-		// Initialize your data structure here.
-		private int count;
 		private boolean isWord;
 		private TrieNode[] childen;
 

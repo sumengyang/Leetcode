@@ -18,6 +18,8 @@ public class ThreeSum3 {
 			return res;
 		Arrays.sort(num);
 		for (int i = 0; i < num.length - 2; i++) {
+			if(i != 0 && num[i] == num[i-1])
+                continue;
 			int start = i+1;
 			int end = num.length - 1;
 			while (start < end) {
