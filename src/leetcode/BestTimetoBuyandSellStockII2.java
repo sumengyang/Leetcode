@@ -7,19 +7,23 @@ package leetcode;
  */
 public class BestTimetoBuyandSellStockII2 {
 	public int maxProfit(int[] prices) {
-		int maxprofit = 0;
-		int i = 1;
-		while (i < prices.length) {
-			while (i < prices.length && prices[i] < prices[i - 1])
-				i++;
-			int buy = prices[i - 1];
-			while (i < prices.length && prices[i] > prices[i - 1])
-				i++;
-			int sell = prices[i - 1];
-			maxprofit += sell - buy;
-			// don't forget this the price may be keep the same
-			i++;
+		if (prices == null || prices.length == 0) {
+			return 0;
 		}
-		return maxprofit;
+		int len = prices.length;
+		int[] buy = new int[len + 1]; // before i, for any sequence last action at i is going to be buy
+		int[] sell = new int[len + 1]; // before i, for any sequence last action at i is going to be sell
+		int[] cooldown = new int[len + 1]; // before i, for any sequence last action at i is going to be cooldown
+		buy[0] = Integer.MIN_VALUE;
+
+		for (int i = 1; i < len + 1; i++) {
+			// must sell to get profit
+			buy[i] = Math.max(buy[i - 1], cooldown[i - 1] - prices[i - 1]); 
+			sell[i] = Math.max(buy[i - 1] + prices[i - 1], sell[i - 1]);
+			cooldown[i] = Math.max(sell[i - 1],
+					Math.max(buy[i - 1], cooldown[i - 1]));
+		}
+
+		return Math.max(buy[len], Math.max(sell[len], cooldown[len]));
 	}
 }
