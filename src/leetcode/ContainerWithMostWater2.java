@@ -6,16 +6,17 @@ package leetcode;
  * Note: You may not slant the container.
  */
 
-//TLE I don not know why
-public class ContainerWithMostWater {
+//Accept : double pointer
+public class ContainerWithMostWater2 {
 	public int maxArea(int[] height) {
-		int len = height.length, low = 0, high = len - 1;
 		int maxArea = 0;
+		int low = 0, high = height.length - 1;
 		while (low < high) {
-			maxArea = Math.max(maxArea, (high - low) * Math.min(height[low], height[high]));
-			if (height[low] < height[high]) {
+			if (height[low] <= height[high]) {
+				maxArea = Math.max(maxArea, (high - low) * height[low]);
 				low++;
 			} else {
+				maxArea = Math.max(maxArea, (high - low) * height[high]);
 				high--;
 			}
 		}
